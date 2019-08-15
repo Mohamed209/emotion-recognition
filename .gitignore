@@ -1,5 +1,5 @@
 /venv/*
-/dlibdata/*
+dlibdata/
 fer2013.csv
 .idea/
 .ipynb_checkpoints/
