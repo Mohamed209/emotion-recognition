@@ -1,6 +1,6 @@
 /venv/*
 data/
-dlib-data/
+dlib-data/*
 .idea/
 __pycache__/
 .vscode/
