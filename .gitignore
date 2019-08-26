@@ -1,11 +1,7 @@
 /venv/*
+data/
 dlib-data/
-fer2013.csv
 .idea/
-.ipynb_checkpoints/
 __pycache__/
 .vscode/
-emotions.pkl
-images.pkl
-base_model2.h5py
-
+model-weights
