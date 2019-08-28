@@ -1,9 +1,9 @@
-from flask import Flask, request, render_template
 import cv2
 import dlib
 import numpy as np
+from flask import Flask, request, render_template
 from keras.models import load_model
-
+from werkzeug.utils import secure_filename
 FACE_DETECTOR_WEIGHTS = '../dlib_data/mmod_human_face_detector.dat'
 EMOTION_DETECTOR_WEIGHTS = '../model_weights/emotion_model1.h5py'
 IMAGE_WIDTH = 48
@@ -19,8 +19,9 @@ emotions = {
     6: 'Neutral'
 }
 
-
 IMAGES_PATH = '../data/user_images/'
+
+
 def predict_emotion(image):
     '''
     function to predict emotion from face/faces detected in image
@@ -55,6 +56,7 @@ def predict_emotion(image):
         # cv2.imwrite()
         return emotion
 
+
 app = Flask(__name__,
             template_folder='templates')
 
@@ -72,8 +74,9 @@ def predict():
         f = request.files['image']
 
         # Save image
-        f.save(IMAGES_PATH)
-        image = cv2.imread(IMAGES_PATH)
+        filename = secure_filename(f.filename)
+        f.save(IMAGES_PATH+filename)
+        image = cv2.imread(IMAGES_PATH+filename)
         emotion = predict_emotion(image)
         return emotion
 
