@@ -1,8 +1,9 @@
 /venv/*
 data/
-dlib_data
+dlib_data/
 .idea/
 __pycache__/
 .vscode/
-model_weights
+model_weights/
 .ipynb_checkpoints
+testing_nootebooks/

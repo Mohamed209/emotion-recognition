@@ -4,6 +4,7 @@ import numpy as np
 from flask import Flask, request, render_template
 from keras.models import load_model
 from werkzeug.utils import secure_filename
+
 FACE_DETECTOR_WEIGHTS = '../dlib_data/mmod_human_face_detector.dat'
 EMOTION_DETECTOR_WEIGHTS = '../model_weights/emotion_model1.h5py'
 IMAGE_WIDTH = 48
@@ -75,8 +76,8 @@ def predict():
 
         # Save image
         filename = secure_filename(f.filename)
-        f.save(IMAGES_PATH+filename)
-        image = cv2.imread(IMAGES_PATH+filename)
+        f.save(IMAGES_PATH + filename)
+        image = cv2.imread(IMAGES_PATH + filename)
         emotion = predict_emotion(image)
         return emotion
 
