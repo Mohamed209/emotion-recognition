@@ -5,5 +5,5 @@ dlib_data/
 __pycache__/
 .vscode/
 model_weights/
-.ipynb_checkpoints
+.ipynb_checkpoints/
 testing_nootebooks/
